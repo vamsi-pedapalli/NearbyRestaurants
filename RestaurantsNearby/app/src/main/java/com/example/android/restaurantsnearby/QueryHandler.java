@@ -141,4 +141,6 @@ public class QueryHandler {
         return earthquakes;
     }
 
+
+
 }

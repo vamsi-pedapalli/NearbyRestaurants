@@ -10,38 +10,11 @@
     android:paddingTop="16dp"
     android:weightSum="1">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="128dp">
-
-
-        <ImageView
-            android:id="@+id/thumb"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:cropToPadding="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/sample_thumb" />
-
-        <ImageView
-            android:id="@+id/loca"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:padding="8dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_location_on_white_24dp" />
-
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/layout_shape"
         android:orientation="vertical"
         android:paddingEnd="8dp"
         android:paddingLeft="8dp"
@@ -63,57 +36,82 @@
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="64dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-
-                <ImageView
-                    android:id="@+id/star"
-                    android:layout_width="20dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:paddingTop="4dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_star_half_black_24dp" />
-
-                <TextView
-                    android:id="@+id/Restaurant_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:paddingLeft="2dp"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    tools:text="3.29" />
-
-
-                <TextView
-                    android:id="@+id/distance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:maxLines="1"
-                    android:gravity="top"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    tools:text="00.05km" />
-
-
-            </LinearLayout>
-
             <TextView
                 android:id="@+id/rAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="end|center_vertical"
+                android:layout_weight="2"
+                android:gravity="left|center_vertical"
                 android:maxLines="3"
                 android:paddingLeft="8dp"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 tools:text="5/9, ground floor, near nan car showroom, hosapalya layout, garebhavipalya, bommanahali, bangalore" />
 
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:gravity="end|center_vertical"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                tools:text="00.05km" />
+
+
         </LinearLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/layout_shape">
+
+
+        <ImageView
+            android:id="@+id/thumb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_thumb" />
+
+        <TextView
+            android:id="@+id/Restaurant_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/rating_square"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="4dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:text="3.29" />
+
+
+        <ImageView
+            android:id="@+id/loca"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:padding="8dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_location_on_white_24dp" />
+
+    </RelativeLayout>
 </RelativeLayout>

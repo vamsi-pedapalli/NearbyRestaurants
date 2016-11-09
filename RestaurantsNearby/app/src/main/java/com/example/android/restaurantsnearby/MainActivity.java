@@ -18,6 +18,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.app.LoaderManager;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Loader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        locationProvider = LocationManager.NETWORK_PROVIDER;
-        Location lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
-        updateURL(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
+        locationProvider = LocationManager.GPS_PROVIDER;
+//        Location lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
+//        updateURL(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
 
         RestaurantsAsynTask task = new RestaurantsAsynTask();
         task.execute(sampleURL.toString());
@@ -70,13 +73,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //                                                              Uri gmmIntentUri = Uri.parse("geo:"+location.getLatitude()+","+location.getLongitude());
 //                                                              Uri gmmIntentUri = Uri.parse("geo:19.0330,73.0297");
 
-                                                              Uri gmmIntentUri = Uri.parse("http://maps.google.com/maps?daddr="+ location.getLatitude() +","+location.getLongitude());
+                                                              Uri gmmIntentUri = Uri.parse("http://maps.google.com/maps?daddr=" + location.getLatitude() + "," + location.getLongitude());
                                                               Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                                                               mapIntent.setPackage("com.google.android.apps.maps");
                                                               if (mapIntent.resolveActivity(getPackageManager()) != null) {
                                                                   startActivity(mapIntent);
                                                               } else {
-                                                                  Toast.makeText(getApplicationContext(), "no maps app, go to"+ location.getLatitude() +"," + location.getLongitude(), Toast.LENGTH_SHORT).show();
+                                                                  Toast.makeText(getApplicationContext(), "no maps app, go to" + location.getLatitude() + "," + location.getLongitude(), Toast.LENGTH_SHORT).show();
 
                                                               }
 
@@ -108,7 +111,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         updateURL(userLatitude, userLongitude);
         RestaurantsAsynTask task = new RestaurantsAsynTask();
         task.execute(sampleURL.toString());
-    }
+
+}
 
     @Override
     public void onProviderEnabled(String provider) {

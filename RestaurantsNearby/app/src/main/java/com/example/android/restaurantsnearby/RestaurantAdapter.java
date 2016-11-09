@@ -49,8 +49,15 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurants> {
 
         TextView distance = (TextView) listItemView.findViewById(R.id.distance);
         double dist = ((calculateDistance(MainActivity.getUserLatitude(),MainActivity.getUserLongitude(),currentItem.getLatitude(),currentItem.getLongitude()))/1000);
+        if(dist<=10){
         String formattedDistance = formatdouble(dist) + "km";
-        distance.setText(formattedDistance);
+        distance.setText(formattedDistance);}
+        else if(dist<=100 && dist > 10){
+            distance.setText("10 km +");
+        }
+        else{
+            distance.setText("Too Far");
+        }
 
         ImageView loc = (ImageView) listItemView.findViewById(R.id.loca);
         loc.setOnClickListener(new View.OnClickListener() {
